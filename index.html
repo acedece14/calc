@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Calque</title>
+    <title>Calc</title>
     <link rel="icon" type='image/png' href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <script src="math.min.js"></script>
@@ -10,6 +10,23 @@
 	<script language="JavaScript" type="text/javascript" src="jquery-3.3.1.min.js"></script>
 	<script src="jquery.cookie.js"></script>
 	
+	<script> 
+		function saveTemp() {
+			var savedText = $('#input').val();
+			Cookies.set('savedTextTemp', savedText); 
+			alert('saved, ok');
+		}
+		
+		function loadTemp() {
+			var savedText = Cookies.get('savedTextTemp'); 
+			if (savedText) {
+				$('#input').val(savedText);
+				alert('loaded ok');
+				return;
+			}
+			alert('error load');
+		}		
+		</script>
 	
     <script>
         window.onload = function () {
@@ -35,35 +52,31 @@
 					console.log('readed: ' + Cookies.get('savedText') ); 
 				})
 			});
-	</script>
-	 <script>
-		 $(function() {
-		  // Target all classed with ".lined"
-		  $(".input").linedtextarea(
-			{selectedLine: 1}
-		  );
-		});
-	</script>
+	</script> 
 	 
 	
 </head>
-<body>
+<body> 
     <div class="interface">
         <div class="output " id="output"></div>
-        <textarea class="input" id="input">## Calque
+        <textarea class="input" id="input"># Калькулятор
 
-# Expressions
+# Выражения
 2 + 2 * 2
 sqrt(3^2 + 4^2)
 2 inch to cm
 cos(45 deg)
 
-# Variables
+# Предыдущий результат
+2 * 2
+last + 1
+
+# Переменные
 a = 25
 b = a * 2
 postal code = 1122
 
-# Expression trees
+# Выражения-деревья
 animals:
   cats = 2
   dogs = 3
@@ -73,15 +86,16 @@ plants:
     potatos = 10
     carrots = 10
 
-# Functions
+# Функции
 pow2(x) = x ^ 2
 pow2(6)
-
-# Last result
-2 * 2
-last + 1
-</textarea>
-    </div>
-
+		</textarea>
+	</div>
+	
+<div style="position: absolute; top: 0; right: 0; ">
+	<img class="animated-gif" onclick="saveTemp()" src="save.gif" >	
+	<img class="animated-gif" onclick="loadTemp()" src="load.gif">
+</div>
+	
 </body>
 </html>

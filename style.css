@@ -27,10 +27,11 @@ body {
 }
 
 .interface .input {
+    color: #dff;
+    background: #111;
     overflow: auto;
     border: none;
     outline: none;
-    background: none;
     resize: none;
 }
 
@@ -58,5 +59,11 @@ body {
 
 .interface .output .error {
     color: red;
+}
+
+
+img.animated-gif{
+  width: 50px;
+  height: auto;
 }
   
