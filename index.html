@@ -9,17 +9,17 @@
     <script src="calque.js"></script>
 	<script language="JavaScript" type="text/javascript" src="jquery-3.3.1.min.js"></script>
 	<script src="jquery.cookie.js"></script>
+	
+	
     <script>
         window.onload = function () {
             var input = document.getElementById('input');
             var output = document.getElementById('output');
             window.calque = new Calque(input, output);
-            input.focus(); 
+            input.focus();  
         }
     </script>
-	<script>
-	
-	
+	<script>	
 		$(document).ready(function(){
 				var savedText = Cookies.get('savedText');
 				console.log('loaded: ');
@@ -27,6 +27,7 @@
 				if (savedText) {
 					$('#input').val(savedText);
 				}
+				 
 				$('#input').keydown(function(){
 					var savedText = $('#input').val();
 					Cookies.set('savedText', savedText); 
@@ -35,10 +36,20 @@
 				})
 			});
 	</script>
+	 <script>
+		 $(function() {
+		  // Target all classed with ".lined"
+		  $(".input").linedtextarea(
+			{selectedLine: 1}
+		  );
+		});
+	</script>
+	 
+	
 </head>
 <body>
     <div class="interface">
-        <div class="output" id="output"></div>
+        <div class="output " id="output"></div>
         <textarea class="input" id="input">## Calque
 
 # Expressions
@@ -69,10 +80,8 @@ pow2(6)
 # Last result
 2 * 2
 last + 1
-
-# Calque on GitHub: https://github.com/grimalschi/calque
-# Using Math.js: https://github.com/josdejong/mathjs</textarea>
+</textarea>
     </div>
-    <a href="https://github.com/grimalschi/calque"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
 </body>
 </html>
