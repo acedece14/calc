@@ -30,8 +30,8 @@
 				$('#input').keydown(function(){
 					var savedText = $('#input').val();
 					Cookies.set('savedText', savedText); 
-					console.log('saved: ' + savedText);
-					console.log('readed: ' + Cookies.get('savedText')); 
+					console.log('saved bytes: ' + savedText.length);
+					console.log('readed: ' + Cookies.get('savedText') ); 
 				})
 			});
 	</script>
