@@ -7,14 +7,34 @@
     <link rel="stylesheet" href="style.css">
     <script src="math.min.js"></script>
     <script src="calque.js"></script>
+	<script language="JavaScript" type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script src="jquery.cookie.js"></script>
     <script>
         window.onload = function () {
             var input = document.getElementById('input');
             var output = document.getElementById('output');
             window.calque = new Calque(input, output);
-            input.focus();
+            input.focus(); 
         }
     </script>
+	<script>
+	
+	
+		$(document).ready(function(){
+				var savedText = Cookies.get('savedText');
+				console.log('loaded: ');
+				console.log(savedText);
+				if (savedText) {
+					$('#input').val(savedText);
+				}
+				$('#input').keydown(function(){
+					var savedText = $('#input').val();
+					Cookies.set('savedText', savedText); 
+					console.log('saved: ' + savedText);
+					console.log('readed: ' + Cookies.get('savedText')); 
+				})
+			});
+	</script>
 </head>
 <body>
     <div class="interface">
