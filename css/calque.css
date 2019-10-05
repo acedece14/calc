@@ -12,7 +12,8 @@ body {
     height: 100%;
 }
 
-.interface .input, .interface .output {
+.interface .input,
+.interface .output {
     position: absolute;
     top: 0;
     right: 0;
@@ -61,9 +62,7 @@ body {
     color: red;
 }
 
-
-img.animated-gif{
-  width: 50px;
-  height: auto;
+img.animated-gif {
+    width: 50px;
+    height: auto;
 }
-  

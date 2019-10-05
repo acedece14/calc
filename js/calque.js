@@ -1,5 +1,5 @@
 (function () {
-    function translit(text){
+    function translit(text) {
         return text.replace(/[а-яА-Я]/g, function (match) {
             return '_x' + match.charCodeAt() + 'x_';
         });
@@ -221,7 +221,8 @@
                 } else {
                     data = expression.result.toString();
                 }
-            };
+            }
+            ;
             if (type === 'error') data = expression.error;
 
             var lineHtml = '<div class="' + type + '">';

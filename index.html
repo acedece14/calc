@@ -3,63 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Calc</title>
-    <link rel="icon" type='image/png' href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <script src="math.min.js"></script>
-    <script src="calque.js"></script>
-	<script language="JavaScript" type="text/javascript" src="jquery-3.3.1.min.js"></script>
-	<script src="jquery.cookie.js"></script>
-	
-	<script> 
-		function saveTemp() {
-			var savedText = $('#input').val();
-			Cookies.set('savedTextTemp', savedText); 
-			alert('saved, ok');
-		}
-		
-		function loadTemp() {
-			var savedText = Cookies.get('savedTextTemp'); 
-			if (savedText) {
-				$('#input').val(savedText);
-				alert('loaded ok');
-				return;
-			}
-			alert('error load');
-		}		
-		</script>
-	
-    <script>
-        window.onload = function () {
-            var input = document.getElementById('input');
-            var output = document.getElementById('output');
-            window.calque = new Calque(input, output);
-            input.focus();  
-        }
-    </script>
-	<script>	
-		$(document).ready(function(){
-				var savedText = Cookies.get('savedText');
-				console.log('loaded: ');
-				console.log(savedText);
-				if (savedText) {
-					$('#input').val(savedText);
-				}
-				 
-				$('#input').keydown(function(){
-					var savedText = $('#input').val();
-					Cookies.set('savedText', savedText); 
-					console.log('saved bytes: ' + savedText.length);
-					console.log('readed: ' + Cookies.get('savedText') ); 
-				})
-			});
-	</script> 
-	 
-	
+    <link rel="icon" type='image/png' href="images/favicon.png">
+    <link rel="stylesheet" href="css/calque.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/math.min.js"></script>
+    <script src="js/calque.js"></script>
+    <script src="js/main.js"></script>
 </head>
-<body> 
-    <div class="interface">
-        <div class="output " id="output"></div>
-        <textarea class="input" id="input"># Калькулятор
+<body>
+<div class="interface" spellcheck="false">
+    <div class="output " id="output"></div>
+    <textarea class="input" id="input" title=""># Калькулятор
 
 # Выражения
 2 + 2 * 2
@@ -90,12 +44,12 @@ plants:
 pow2(x) = x ^ 2
 pow2(6)
 		</textarea>
-	</div>
-	
-<div style="position: absolute; top: 0; right: 0; ">
-	<img class="animated-gif" onclick="saveTemp()" src="save.gif" >	
-	<img class="animated-gif" onclick="loadTemp()" src="load.gif">
 </div>
-	
+
+<div style="position: absolute; top: 0; right: 0; ">
+    <img class="animated-gif" onclick="saveData()" src="images/save.gif">
+    <img class="animated-gif" onclick="loadData()" src="images/load.gif">
+</div>
+
 </body>
 </html>
