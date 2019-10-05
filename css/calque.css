@@ -61,8 +61,3 @@ body {
 .interface .output .error {
     color: red;
 }
-
-img.animated-gif {
-    width: 50px;
-    height: auto;
-}
